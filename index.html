@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>暗影ハンター v4.2.1</title>
+    <title>ТЕНЕВОЙ ДОЗОР v5.7</title>
     <style>
         body {
             background: #000;
-            color: #0f0;
-            font-family: 'MS Gothic', 'Courier New', monospace;
+            color: #f00;
+            font-family: 'Courier New', monospace;
             margin: 0;
             padding: 20px;
             overflow: hidden;
         }
         #terminal {
-            border: 2px solid #0f0;
+            border: 2px solid #f00;
             padding: 20px;
             height: 90vh;
             overflow-y: auto;
-            background: #001100;
-            box-shadow: 0 0 20px #0f0;
+            background: #110000;
+            box-shadow: 0 0 20px #f00;
         }
         .line {
             margin: 10px 0;
@@ -33,9 +33,9 @@
         .green { color: #0f0; text-shadow: 0 0 10px #0f0; }
         @keyframes blink { 50% { opacity: 0; } }
         .header { 
-            color: #0f0; 
+            color: #f00; 
             text-align: center;
-            border-bottom: 1px solid #0f0;
+            border-bottom: 1px solid #f00;
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
@@ -44,8 +44,8 @@
 <body>
     <div id="terminal">
         <div class="header">
-            <div>闇影ハンター v4.2.1 - ゴーストネットワークアクセス</div>
-            <div>初期化中...</div>
+            <div>ТЕНЕВОЙ ДОЗОР v5.7 - СИСТЕМА ВТОРЖЕНИЯ</div>
+            <div>ИНИЦИАЛИЗАЦИЯ ПРОТОКОЛА "ТЕНЬ"</div>
         </div>
         <div id="output"></div>
         <div class="blink">▊</div>
@@ -54,103 +54,99 @@
     <script>
         const output = document.getElementById('output');
         const messages = [
-            {text: "████████████████████████████████████████████████████████████████████████████", delay: 50},
-            {text: "▓▓▓ 闇影ハンター v4.2.1 - ゴーストネットワークアクセス", delay: 100},
-            {text: "▓▓▓ 侵入モジュールを初期化中...", delay: 100},
-            {text: "████████████████████████████████████████████████████████████████████████████", delay: 50},
+            {text: "╔════════════════════════════════════════════╗", delay: 50},
+            {text: "║  ████████╗ ███████╗ ███████╗ ███████╗     ║", delay: 50},
+            {text: "║  ╚════██║ ██╔════╝ ██╔════╝ ██╔════╝     ║", delay: 50},
+            {text: "║      ██╔╝ █████╗   █████╗   █████╗       ║", delay: 50},
+            {text: "║     ██╔╝  ██╔══╝   ██╔══╝   ██╔══╝       ║", delay: 50},
+            {text: "║     ██║   ███████╗ ███████╗ ███████╗     ║", delay: 50},
+            {text: "║     ╚═╝   ╚══════╝ ╚══════╝ ╚══════╝     ║", delay: 50},
+            {text: "╚════════════════════════════════════════════╝", delay: 50},
+            {text: "", delay: 1000},
+            {text: "[⚡] ИНИЦИАЛИЗАЦИЯ ПРОТОКОЛА 'ТЕНЬ' v5.7", delay: 1000},
+            {text: "[⌛] ОБХОД СИСТЕМ БЕЗОПАСНОСТИ...", delay: 1500},
+            {text: "[⚠]  ОБНАРУЖЕНО ШИФРОВАНИЕ AES-256", delay: 1000},
+            {text: "[🛡️]  АКТИВАЦИЯ МОДУЛЯ ДЕШИФРАЦИИ...", delay: 1000},
+            {text: "", delay: 500},
+            {text: "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", delay: 50},
+            {text: "█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█", delay: 50},
+            {text: "█► ТЕНЕВОЙ ДОСТУП: АКТИВИРОВАН              █", delay: 100},
+            {text: "█► ЦЕЛЬ: СЕТЬ MBA-SAMUEL                   █", delay: 100},
+            {text: "█► ШИФРОВАНИЕ: AES-256-CBC                 █", delay: 100},
+            {text: "█► СТАТУС: [██████████----] 65% ВЫПОЛНЕНО  █", delay: 100},
+            {text: "█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█", delay: 50},
+            {text: "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", delay: 50},
+            {text: "", delay: 1000},
+            {text: "[🕵️] СКАНИРОВАНИЕ СЕТИ MBA-SAMUEL...", delay: 1000, class: "cyan"},
+            {text: "[📍] МЕСТОПОЛОЖЕНИЕ: ЭКВАТОРИАЛЬНАЯ ГВИНЕЯ", delay: 800},
+            {text: "[🌐] ПРОВАЙДЕР: ORANGE GNQ", delay: 800},
+            {text: "[💻] ОС: WINDOWS 11 PRO", delay: 800},
+            {text: "[🔧] УСТРОЙСТВО: " + (Math.random() > 0.5 ? "НОУТБУК" : "ПК"), delay: 800},
+            {text: "[⏰] ВРЕМЯ ДОСТУПА: " + new Date().toLocaleTimeString(), delay: 800},
+            {text: "", delay: 500},
+            {text: "[🚨] ОБНАРУЖЕНЫ КОНФИДЕНЦИАЛЬНЫЕ ДАННЫЕ", delay: 1000, class: "red"},
+            {text: "[📧] ЭЛЕКТРОННЫЕ ПОЧТЫ: 7 АККАУНТОВ", delay: 700},
+            {text: "[💳] ФИНАНСОВЫЕ ДАННЫЕ: 4 БАНКА", delay: 700},
+            {text: "[📱] СОЦИАЛЬНЫЕ СЕТИ: 12 АККАУНТОВ", delay: 700},
+            {text: "[👥] КОНТАКТЫ: 89 ЗАПИСЕЙ", delay: 700},
+            {text: "[📁] ЛИЧНЫЕ ФАЙЛЫ: 2.7 ГБ", delay: 700},
+            {text: "", delay: 1000},
+            {text: "[💰] ИЗВЛЕЧЕНИЕ ФИНАНСОВЫХ ДАННЫХ...", delay: 1000, class: "cyan"},
+            {text: "🔓 BANGE - СЧЕТ: ****4587 - БАЛАНС: 12,450,000 XAF", delay: 800},
+            {text: "🔓 SGBGE - СЧЕТ: ****8921 - БАЛАНС: 8,750,000 XAF", delay: 800},
+            {text: "🔓 ORANGE MONEY - БАЛАНС: 345,210 XAF", delay: 800},
+            {text: "🔓 CCEI BANK - СЧЕТ: ****3345", delay: 800},
+            {text: "🔓 ECOBANK - ИНВЕСТИЦИИ: 45,000,000 XAF", delay: 800},
+            {text: "", delay: 1000},
+            {text: "[📞] КАРТОГРАФИРОВАНИЕ КОНТАКТОВ...", delay: 1000, class: "cyan"},
+            {text: "🔓 САМУЭЛЬ MBA - ОСНОВНАЯ ЦЕЛЬ", delay: 700},
+            {text: "🔓 МАРИЯ ОНДО - ЧАСТЫЕ КОНТАКТЫ", delay: 700},
+            {text: "🔓 КАРЛОС МИЧА - БАНКОВСКИЕ ОПЕРАЦИИ", delay: 700},
+            {text: "🔓 ХАВЬЕР НСУЭ - ДЕЛОВЫЕ ПЕРЕГОВОРЫ", delay: 700},
+            {text: "🔓 ЛУИСА МАНГУЭ - ЛИЧНЫЕ СООБЩЕНИЯ", delay: 700},
+            {text: "🔓 ТЕРЕСА БОРИКО - СЕМЕЙНЫЕ СВЯЗИ", delay: 700},
+            {text: "🔓 ХОСЕ ЭДУ - РАБОЧИЕ КОНТАКТЫ", delay: 700},
+            {text: "🔓 АНА НСЕНГ - СОЦИАЛЬНЫЕ СВЯЗИ", delay: 700},
+            {text: "", delay: 1000},
+            {text: "[🔐] ВЗЛОМ КОДОВ ДОСТУПА...", delay: 1000, class: "cyan"},
+            {text: "🔓 FACEBOOK: ТОКЕН ДОСТУПА ПОЛУЧЕН", delay: 700},
+            {text: "🔓 WHATSAPP: СИНХРОНИЗАЦИЯ ВЫПОЛНЕНА", delay: 700},
+            {text: "🔓 INSTAGRAM: ПРЯМЫЕ СООБЩЕНИЯ ПРОЧИТАНЫ", delay: 700},
+            {text: "🔓 TWITTER: АККАУНТ СКОМПРОМЕТИРОВАН", delay: 700},
+            {text: "🔓 LINKEDIN: ПРОФЕССИОНАЛЬНЫЕ КОНТАКТЫ", delay: 700},
+            {text: "🔓 TELEGRAM: ЧАТЫ ПЕРЕХВАЧЕНЫ", delay: 700},
+            {text: "", delay: 1000},
+            {text: "[🌐] УСТАНОВКА БЭКДОРОВ...", delay: 1000, class: "cyan"},
+            {text: "🔓 ТРОЯН: SHADOW-RAT v3.4 - УСТАНОВЛЕН", delay: 800},
+            {text: "🔓 КЛАВИАТУРНЫЙ ШПИОН: KEYLOG-X - АКТИВЕН", delay: 800},
+            {text: "🔓 ШИФРОВАЛЬЩИК: DARK-CRYPT - ГОТОВ", delay: 800},
+            {text: "🔓 УДАЛЕННЫЙ ДОСТУП: GHOST-CONNECT - РАБОТАЕТ", delay: 800},
+            {text: "", delay: 1000},
+            {text: "[📡] ЭКСФИЛЬТРАЦИЯ ДАННЫХ...", delay: 1000, class: "cyan"},
+            {text: "📤 185.143.223.45:8443 - РОССИЯ 🇷🇺 - 92% ЗАВЕРШЕНО", delay: 800},
+            {text: "📤 94.142.241.111:443 - НИДЕРЛАНДЫ 🇳🇱 - 87% ЗАВЕРШЕНО", delay: 800},
+            {text: "📤 45.77.221.123:2083 - СИНГАПУР 🇸🇬 - 95% ЗАВЕРШЕНО", delay: 800},
+            {text: "📤 217.182.76.89:3244 - ФРАНЦИЯ 🇫🇷 - 89% ЗАВЕРШЕНО", delay: 800},
             {text: "", delay: 2000},
-            {text: "[フェーズ1] ターゲット認識", delay: 300, class: "cyan"},
-            {text: "システムフィンガープリントを分析中...", delay: 1500},
-            {text: "   ▸ 検出されたOS: Windows 11", delay: 500},
-            {text: "   ▸ ユーザー: " + (Math.random() > 0.5 ? "ユーザー" : "Administrator"), delay: 500},
-            {text: "   ▸ 推定位置: 赤道ギニア・マラボ", delay: 500},
-            {text: "   ▸ ISP: Orange Guinée Équatoriale", delay: 500},
-            {text: "   ▸ 現地時間: " + new Date().toLocaleTimeString(), delay: 500},
-            {text: "   ▸ 言語設定: 日本語/スペイン語/フランス語", delay: 500},
-            {text: "ローカルファイアウォールをバイパス中...", delay: 1500},
-            {text: "   ▸ ファイアウォール無効化: Windows Defender", delay: 1000},
-            {text: "", delay: 1000},
-            {text: "[フェーズ2] 脆弱性調査", delay: 300, class: "cyan"},
-            {text: "   ⚠ ポート443 (HTTPS) - 銀行サービス公開", delay: 800},
-            {text: "   ⚠ ポート993 (IMAPS) - メールクライアント脆弱", delay: 800},
-            {text: "   ⚠ Facebookセッションアクティブ - アクセストークン取得済み", delay: 800},
-            {text: "   ⚠ WhatsApp Web - 完全同期達成", delay: 800},
-            {text: "   ⚠ ブラウザCookie - セッションハイジャック成功", delay: 800},
-            {text: "   ⚠ 暗号化キー - AES-256キー抽出中", delay: 800},
-            {text: "", delay: 1000},
-            {text: "[サブモジュール] 金融データ抽出", delay: 300, class: "cyan"},
-            {text: "   💰 BANGE - 口座: ****4587 - 残高: 12,450,000 XAF", delay: 700},
-            {text: "   💰 SGBGE - 口座: ****8921 - 残高: 8,750,000 XAF", delay: 700},
-            {text: "   💰 Orange Money - 残高: 345,210 XAF - 最終取引: 2024/12/15", delay: 700},
-            {text: "   💰 CCEI銀行 - 口座: ****3345 - 与信限度額: 25,000,000 XAF", delay: 700},
-            {text: "   💰 Ecobank - 口座: ****6677 - 投資ポートフォリオ: 45,000,000 XAF", delay: 700},
-            {text: "", delay: 1000},
-            {text: "[サブモジュール] 電話帳データ抽出", delay: 300, class: "cyan"},
-            {text: "   抽出された連絡先総数: 8", delay: 500},
-            {text: "   📞 山田太郎 - +81 90-1234-5678 - 東京支店長", delay: 600},
-            {text: "   📞 김영희 - +82 10-9876-5432 - 서울본사", delay: 600},
-            {text: "   📞 Wang Wei - +86 138 0013 8000 - 北京オフィス", delay: 600},
-            {text: "   📞 Javier Nsue Nguema - +240 222 112 233 - 経済大臣", delay: 600},
-            {text: "   📞 Maria Ondo Boricó - +240 333 445 566 - BANGE取締役", delay: 600},
-            {text: "   📞 Carlos Micha Obama - +240 555 667 788 - 石油実業家", delay: 600},
-            {text: "   📞 鈴木一郎 - +81 70-5566-7788 - 技術顧問", delay: 600},
-            {text: "   📞 Chen Li - +86 139 2233 4455 - 上海支社", delay: 600},
-            {text: "", delay: 1000},
-            {text: "[サブモジュール] 電子メールアカウント侵害", delay: 300, class: "cyan"},
-            {text: "   📧 yamada.taro@tokyo-corp.co.jp - 3,245通のメール", delay: 600},
-            {text: "   📧 kim.younghee@seoul-group.kr - 1,887通のメール", delay: 600},
-            {text: "   📧 wang.wei@beijing-holdings.cn - 4,512通のメール", delay: 600},
-            {text: "   📧 javier.nsue@gobierno-gnq.gq - 公式通信", delay: 600},
-            {text: "   📧 maria.ondo@bange-banque.gq - 銀行取引", delay: 600},
-            {text: "   📧 carlos.micha@petroleo-gnq.gq - 石油契約書", delay: 600},
-            {text: "   📧 suzuki.ichiro@tech-consult.jp - 技術文書", delay: 600},
-            {text: "   📧 chen.li@shanghai-invest.cn - 投資提案", delay: 600},
-            {text: "", delay: 1000},
-            {text: "[サブモジュール] ソーシャルメディア侵害", delay: 300, class: "cyan"},
-            {text: "   📱 Facebook: 1,285人の友達 - 非公開写真45枚アクセス可能", delay: 600},
-            {text: "   📱 WhatsApp: 347のアクティブな会話 - 完全バックアップ", delay: 600},
-            {text: "   📱 Instagram: 890人のフォロワー - DM読み取り済み", delay: 600},
-            {text: "   📱 Twitter: 認証済みアカウント @usuario_gnq - DM抽出済み", delay: 600},
-            {text: "   📱 LinkedIn: 職業プロフィール - 業務連絡先取得", delay: 600},
-            {text: "   📱 WeChat: 個人/業務アカウント - チャット履歴完全コピー", delay: 600},
-            {text: "   📱 LINE: 日本の連絡先 - トークルームアクセス", delay: 600},
-            {text: "", delay: 1000},
-            {text: "[フェーズ3] データ外部流出", delay: 300, class: "cyan"},
-            {text: "   📤 185.143.223.45:8443 - ロシア・モスクワ 🇷🇺 - 92% 完了", delay: 800},
-            {text: "   📤 94.142.241.111:443 - オランダ・アムステルダム 🇳🇱 - 87% 完了", delay: 800},
-            {text: "   📤 45.77.221.123:2083 - シンガポール 🇸🇬 - 95% 完了", delay: 800},
-            {text: "   📤 217.182.76.89:3244 - フランス・パリ 🇫🇷 - 89% 完了", delay: 800},
-            {text: "   📤 103.214.68.122:5566 - 香港 🇭🇰 - 91% 完了", delay: 800},
-            {text: "   📤 198.51.100.23:7890 - アメリカ・ニューヨーク 🇺🇸 - 88% 完了", delay: 800},
+            {text: "«░▒▓█ СИСТЕМА СКОМПРОМЕТИРОВАНА █▓▒░»", delay: 1000, class: "red"},
+            {text: "┌─────────────────────────────────────┐", delay: 50},
+            {text: "│  IP: 192.168.1.[REDACTED]           │", delay: 100},
+            {text: "│  MAC: 00:1B:44:11:3A:B7             │", delay: 100},
+            {text: "│  ОС: WINDOWS 11 PRO                 │", delay: 100},
+            {text: "│  ПОЛЬЗОВАТЕЛЬ: SAMUEL MBA           │", delay: 100},
+            {text: "│  ПОСЛЕДНИЙ ДОСТУП: " + new Date().toLocaleString() + " │", delay: 100},
+            {text: "└─────────────────────────────────────┘", delay: 50},
             {text: "", delay: 2000},
-            {text: "🎯 最終侵害レポート", delay: 500, class: "yellow"},
-            {text: "████████████████████████████████████████████████████████", delay: 50},
-            {text: "   █ 総アクセス時間: 78 分", delay: 1000},
-            {text: "   █ 抽出データ: 2.7 GB (圧縮)", delay: 1000},
-            {text: "   █ 情報感度: 極秘", delay: 1000},
-            {text: "   █ 露出リスク: 致命的", delay: 1000},
-            {text: "   █ 推奨措置: システム完全再フォーマット", delay: 1000},
-            {text: "   █ 次のアクション: 身代金要求準備中", delay: 1000},
-            {text: "████████████████████████████████████████████████████████", delay: 50},
-            {text: "", delay: 2000},
-            {text: "⚠️  警告: このウィンドウを閉じないでください", delay: 1000, class: "red"},
-            {text: "⚠️  システムは活動を監視し続けています", delay: 1000, class: "red"},
-            {text: "💀 データは暗号化されました - 身代金の支払いを待っています", delay: 1500, class: "red"},
-            {text: "", delay: 2000},
-            {text: "🕵️  システム活動を監視中... [1/20]", delay: 1000},
-            {text: "🕵️  システム活動を監視中... [5/20]", delay: 1000},
-            {text: "🕵️  システム活動を監視中... [10/20]", delay: 1000},
-            {text: "🕵️  システム活動を監視中... [15/20]", delay: 1000},
-            {text: "🕵️  システム活動を監視中... [20/20]", delay: 1000},
-            {text: "", delay: 2000},
-            {text: "🔒 セッションは自動的に終了しました", delay: 1000},
-            {text: "📞 連絡先: shadow-team@protonmail.com", delay: 800},
-            {text: "₿ ビットコインウォレット: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", delay: 800},
-            {text: "💀 身代金: 2.5 BTC - 支払い期限: 72時間", delay: 800},
+            {text: "[💀] АКТИВАЦИЯ ПРОТОКОЛА ШАНТАЖА...", delay: 2000, class: "red"},
+            {text: "[₿] БИТКОИН КОШЕЛЕК: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", delay: 1000},
+            {text: "[💰] СУММА ВЫКУПА: 2.5 BTC", delay: 1000},
+            {text: "[⏰] СРОК: 72 ЧАСА", delay: 1000},
+            {text: "[📧] КОНТАКТ: shadow-collective@protonmail.com", delay: 1000},
             {text: "", delay: 3000},
-            {text: "暗影ハンター v4.2.1 - 任務完了", delay: 1000, class: "green"},
-            {text: "すべてのデータは安全な場所に転送されました", delay: 1000, class: "green"},
-            {text: "接続を終了します...", delay: 2000, class: "green"}
+            {text: "ТЕНЕВОЙ ДОЗОР v5.7 - МИССИЯ ВЫПОЛНЕНА", delay: 2000, class: "green"},
+            {text: "ВСЕ ДАННЫЕ ПЕРЕДАНЫ В БЕЗОПАСНОЕ МЕСТО", delay: 2000, class: "green"},
+            {text: "УГРОЗА СОХРАНЕНА - СИСТЕМА КОНТРОЛИРУЕТСЯ", delay: 2000, class: "green"},
+            {text: "ОЖИДАНИЕ ИНСТРУКЦИЙ...", delay: 3000, class: "blink red"}
         ];
 
         let index = 0;
@@ -171,7 +167,7 @@
             }
         }
 
-        // 自動開始
+        // Автоматический запуск
         window.onload = function() {
             setTimeout(displayNext, 1000);
         };
